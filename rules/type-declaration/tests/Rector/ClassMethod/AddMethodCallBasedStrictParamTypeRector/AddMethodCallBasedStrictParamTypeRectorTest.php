@@ -6,7 +6,6 @@ namespace Rector\TypeDeclaration\Tests\Rector\ClassMethod\AddMethodCallBasedStri
 
 use Iterator;
 use Rector\Testing\PHPUnit\AbstractRectorTestCase;
-use Rector\TypeDeclaration\Rector\ClassMethod\AddMethodCallBasedStrictParamTypeRector;
 use Symplify\SmartFileSystem\SmartFileInfo;
 
 final class AddMethodCallBasedStrictParamTypeRectorTest extends AbstractRectorTestCase
