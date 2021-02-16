@@ -49,7 +49,7 @@ final class CallableTypeMapper implements TypeMapperInterface
     /**
      * @param CallableType|ClosureType $type
      */
-    public function mapToPhpParserNode(Type $type, ?string $kind = null): ?Node
+    public function mapToPhpParserNode(ClosureType $type, ?string $kind = null): ?Node
     {
         if ($kind === 'property') {
             return null;

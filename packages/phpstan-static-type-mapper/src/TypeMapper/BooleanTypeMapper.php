@@ -72,7 +72,7 @@ final class BooleanTypeMapper implements TypeMapperInterface
         return 'bool';
     }
 
-    private function isFalseBooleanTypeWithUnion(Type $type): bool
+    private function isFalseBooleanTypeWithUnion(\PHPStan\Type\BooleanType $type): bool
     {
         if (! $type instanceof FalseBooleanType) {
             return false;
