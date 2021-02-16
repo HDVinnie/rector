@@ -88,10 +88,8 @@ CODE_SAMPLE
         return [ClassConst::class];
     }
 
-    /**
-     * @param ClassConst $node
-     */
-    public function refactor(Node $node): ?Node
+
+    public function refactor(\PhpParser\Node\Stmt\ClassConst $node): ?Node
     {
         if ($this->shouldSkip($node)) {
             return null;

@@ -13,6 +13,7 @@ use PhpParser\Node\Stmt\ClassMethod;
 use PhpParser\Node\Stmt\Return_;
 use PhpParser\NodeFinder;
 use PHPStan\Type\MixedType;
+use PHPStan\Type\ObjectType;
 use PHPStan\Type\Type;
 use PHPStan\Type\TypeWithClassName;
 use Rector\Core\Util\StaticInstanceOf;
@@ -184,12 +185,8 @@ final class FluentChainMethodCallNodeAnalyzer
      *
      * @param string[] $methods
      */
-    public function isTypeAndChainCalls(Node $node, Type $type, array $methods): bool
+    public function isTypeAndChainCalls(MethodCall $node, ObjectType $type, array $methods): bool
     {
-        if (! $node instanceof MethodCall) {
-            return false;
-        }
-
         // node chaining is in reverse order than code
         $methods = array_reverse($methods);
 

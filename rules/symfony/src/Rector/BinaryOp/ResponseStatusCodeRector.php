@@ -6,6 +6,7 @@ namespace Rector\Symfony\Rector\BinaryOp;
 
 use PhpParser\Node;
 use PhpParser\Node\Arg;
+use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\BinaryOp;
 use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Expr\MethodCall;
@@ -196,7 +197,7 @@ CODE_SAMPLE
         return null;
     }
 
-    private function isGetStatusMethod(Node $node): bool
+    private function isGetStatusMethod(Expr $node): bool
     {
         if (! $node instanceof MethodCall) {
             return false;

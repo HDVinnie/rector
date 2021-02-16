@@ -87,7 +87,7 @@ final class StmtVisibilitySorter
      * @param Class_|Interface_ $classLike
      * @return string[]
      */
-    public function sortConstants(ClassLike $classLike): array
+    public function sortConstants(Class_ $classLike): array
     {
         $classConstsRankeables = [];
         foreach ($classLike->stmts as $position => $constantStmt) {

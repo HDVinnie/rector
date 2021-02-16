@@ -60,7 +60,7 @@ final class IdentifierManipulator
     /**
      * @param ClassConstFetch|MethodCall|PropertyFetch|StaticCall|ClassMethod $node
      */
-    public function removeSuffix(Node $node, string $suffixToRemove): void
+    public function removeSuffix(ClassMethod $node, string $suffixToRemove): void
     {
         Assert::isAnyOf(
             $node,

@@ -10,7 +10,6 @@ use PhpParser\Node\VarLikeIdentifier;
 use Rector\Naming\Contract\Guard\ConflictingGuardInterface;
 use Rector\Naming\Contract\RenameGuard\RenameGuardInterface;
 use Rector\Naming\Contract\RenamerInterface;
-use Rector\Naming\Contract\RenameValueObjectInterface;
 use Rector\Naming\Guard\DateTimeAtNamingConventionGuard;
 use Rector\Naming\Guard\HasMagicGetSetGuard;
 use Rector\Naming\Guard\NotPrivatePropertyGuard;
@@ -79,10 +78,9 @@ abstract class AbstractPropertyRenamer implements RenamerInterface
     }
 
     /**
-     * @param PropertyRename $renameValueObject
      * @return Property|null
      */
-    public function rename(RenameValueObjectInterface $renameValueObject): ?Node
+    public function rename(\Rector\Naming\ValueObject\PropertyRename $renameValueObject): ?Node
     {
         if (! $this->areNamesDifferent($renameValueObject)) {
             return null;

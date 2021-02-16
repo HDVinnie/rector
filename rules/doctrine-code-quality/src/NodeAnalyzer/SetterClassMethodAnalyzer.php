@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\DoctrineCodeQuality\NodeAnalyzer;
 
-use PhpParser\Node;
+use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\Assign;
 use PhpParser\Node\Expr\PropertyFetch;
 use PhpParser\Node\Expr\Variable;
@@ -145,7 +145,7 @@ final class SetterClassMethodAnalyzer
         return $propertyFetch;
     }
 
-    private function isVariableName(?Node $node, string $name): bool
+    private function isVariableName(Expr $node, string $name): bool
     {
         if (! $node instanceof Variable) {
             return false;

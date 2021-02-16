@@ -6,6 +6,7 @@ namespace Rector\NetteToSymfony\Route;
 
 use Nette\Utils\Strings;
 use PhpParser\Node;
+use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Expr\New_;
 use PhpParser\Node\Expr\StaticCall;
@@ -43,7 +44,7 @@ final class RouteInfoFactory
         $this->nodeRepository = $nodeRepository;
     }
 
-    public function createFromNode(Node $node): ?RouteInfo
+    public function createFromNode(Expr $node): ?RouteInfo
     {
         if ($node instanceof New_) {
             if ($this->hasNoArg($node)) {

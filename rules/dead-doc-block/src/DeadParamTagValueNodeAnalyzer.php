@@ -6,6 +6,7 @@ namespace Rector\DeadDocBlock;
 
 use PhpParser\Node\FunctionLike;
 use PhpParser\Node\Param;
+use PhpParser\Node\Stmt\ClassMethod;
 use PHPStan\PhpDocParser\Ast\PhpDoc\ParamTagValueNode;
 use Rector\NodeNameResolver\NodeNameResolver;
 use Rector\NodeTypeResolver\PHPStan\TypeComparator;
@@ -28,7 +29,7 @@ final class DeadParamTagValueNodeAnalyzer
         $this->typeComparator = $typeComparator;
     }
 
-    public function isDead(ParamTagValueNode $paramTagValueNode, FunctionLike $functionLike): bool
+    public function isDead(ParamTagValueNode $paramTagValueNode, ClassMethod $functionLike): bool
     {
         $param = $this->matchParamByName($paramTagValueNode->parameterName, $functionLike);
         if (! $param instanceof Param) {

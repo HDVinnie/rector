@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Rector\DeadCode\Doctrine;
 
 use Doctrine\ORM\Mapping\Entity;
-use PhpParser\Node;
+use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\MethodCall;
 use PhpParser\Node\Stmt\Class_;
 use PhpParser\Node\Stmt\Property;
@@ -115,7 +115,7 @@ final class DoctrineEntityManipulator
         $relationTagValueNode->removeInversedBy();
     }
 
-    public function isMethodCallOnDoctrineEntity(Node $node, string $methodName): bool
+    public function isMethodCallOnDoctrineEntity(Expr $node, string $methodName): bool
     {
         if (! $node instanceof MethodCall) {
             return false;

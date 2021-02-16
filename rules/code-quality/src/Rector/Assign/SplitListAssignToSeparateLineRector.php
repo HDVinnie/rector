@@ -128,7 +128,7 @@ CODE_SAMPLE
      * @param Array_|List_ $firstArray
      * @param Array_|List_ $secondArray
      */
-    private function isValueSwap($firstArray, $secondArray): bool
+    private function isValueSwap($firstArray, \PhpParser\Node\Expr\Array_ $secondArray): bool
     {
         $firstArrayItemsHash = $this->getArrayItemsHash($firstArray);
         $secondArrayItemsHash = $this->getArrayItemsHash($secondArray);

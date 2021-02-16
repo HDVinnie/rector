@@ -137,7 +137,7 @@ final class ForNodeAnalyzer
         );
     }
 
-    public function isAssignmentWithArrayDimFetchAsVariableInsideForStatements(For_ $for, ?string $keyValueName): bool
+    public function isAssignmentWithArrayDimFetchAsVariableInsideForStatements(For_ $for, string $keyValueName): bool
     {
         return (bool) $this->betterNodeFinder->findFirst(
             $for->stmts,
@@ -168,7 +168,7 @@ final class ForNodeAnalyzer
         );
     }
 
-    public function isValueVarUsedNext(Node $node, string $iteratedVariableSingle): bool
+    public function isValueVarUsedNext(For_ $node, string $iteratedVariableSingle): bool
     {
         return (bool) $this->betterNodeFinder->findFirstNext($node, function (Node $node) use (
             $iteratedVariableSingle

@@ -31,7 +31,7 @@ final class VisibilityManipulator
     /**
      * @param ClassMethod|Class_ $node
      */
-    public function makeAbstract(Node $node): void
+    public function makeAbstract(Class_ $node): void
     {
         $this->addVisibilityFlag($node, Visibility::ABSTRACT);
     }
@@ -51,7 +51,7 @@ final class VisibilityManipulator
     /**
      * @param Class_|ClassMethod $node
      */
-    public function makeFinal(Node $node): void
+    public function makeFinal(Class_ $node): void
     {
         $this->addVisibilityFlag($node, Visibility::FINAL);
     }
@@ -59,7 +59,7 @@ final class VisibilityManipulator
     /**
      * @param Class_|ClassMethod $node
      */
-    public function makeNonFinal(Node $node): void
+    public function makeNonFinal(ClassMethod $node): void
     {
         if (! $node->isFinal()) {
             return;

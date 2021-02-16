@@ -6,6 +6,7 @@ namespace Rector\Doctrine\NodeAnalyzer;
 
 use PhpParser\Node;
 use PhpParser\Node\Expr\MethodCall;
+use PhpParser\Node\Stmt\Class_;
 use Rector\NodeNameResolver\NodeNameResolver;
 use Rector\NodeTypeResolver\NodeTypeResolver;
 use Symplify\Astral\NodeTraverser\SimpleCallableNodeTraverser;
@@ -40,7 +41,7 @@ final class MethodCallNameOnTypeResolver
     /**
      * @return string[]
      */
-    public function resolve(Node $node, string $type): array
+    public function resolve(Class_ $node, string $type): array
     {
         $methodNames = [];
 

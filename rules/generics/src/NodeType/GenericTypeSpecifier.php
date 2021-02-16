@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Generics\NodeType;
 
-use PhpParser\Node;
+use PhpParser\Node\Stmt\Class_;
 use PHPStan\PhpDocParser\Ast\PhpDoc\MethodTagValueNode;
 use PHPStan\Reflection\ClassReflection;
 use PHPStan\Type\Generic\TemplateTypeHelper;
@@ -36,7 +36,7 @@ final class GenericTypeSpecifier
      */
     public function replaceGenericTypesWithSpecificTypes(
         array $methodTagValueNodes,
-        Node $node,
+        Class_ $node,
         ClassReflection $classReflection
     ): void {
         $templateTypeMap = $this->resolveAvailableTemplateTypeMap($classReflection);

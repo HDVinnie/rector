@@ -141,7 +141,7 @@ CODE_SAMPLE
     /**
      * @param Node[] $nodes
      */
-    private function haveSharedClass(Node $mainNode, array $nodes): bool
+    private function haveSharedClass(ClassMethod $mainNode, array $nodes): bool
     {
         $mainNodeClass = $mainNode->getAttribute(AttributeKey::CLASS_NAME);
         foreach ($nodes as $node) {

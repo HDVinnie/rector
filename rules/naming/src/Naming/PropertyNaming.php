@@ -13,7 +13,6 @@ use PhpParser\Node\Stmt\Property;
 use PhpParser\Node\Stmt\Return_;
 use PHPStan\Type\ObjectType;
 use PHPStan\Type\StaticType;
-use PHPStan\Type\Type;
 use PHPStan\Type\TypeWithClassName;
 use Rector\Core\PhpParser\Node\BetterNodeFinder;
 use Rector\Naming\RectorNamingInflector;
@@ -23,6 +22,7 @@ use Rector\NodeNameResolver\NodeNameResolver;
 use Rector\NodeTypeResolver\Node\AttributeKey;
 use Rector\NodeTypeResolver\NodeTypeResolver;
 use Rector\PHPStanStaticTypeMapper\Utils\TypeUnwrapper;
+use Rector\StaticTypeMapper\ValueObject\Type\FullyQualifiedObjectType;
 use Rector\StaticTypeMapper\ValueObject\Type\SelfObjectType;
 
 /**
@@ -112,7 +112,7 @@ final class PropertyNaming
         return new ExpectedName($originalName, $this->rectorNamingInflector->singularize($originalName));
     }
 
-    public function getExpectedNameFromType(Type $type): ?ExpectedName
+    public function getExpectedNameFromType(FullyQualifiedObjectType $type): ?ExpectedName
     {
         $type = $this->typeUnwrapper->unwrapNullableType($type);
         if (! $type instanceof TypeWithClassName) {

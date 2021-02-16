@@ -7,6 +7,7 @@ namespace Rector\DeadCode\NodeFinder;
 use PhpParser\Node;
 use PhpParser\Node\Expr\Assign;
 use PhpParser\Node\Expr\Variable;
+use PhpParser\Node\FunctionLike;
 use Rector\Core\PhpParser\Node\BetterNodeFinder;
 use Rector\Core\PhpParser\Printer\BetterStandardPrinter;
 use Rector\NodeNameResolver\NodeNameResolver;
@@ -43,7 +44,7 @@ final class VariableUseFinder
      * @param Variable[] $assignedVariables
      * @return Variable[]
      */
-    public function resolveUsedVariables(Node $node, array $assignedVariables): array
+    public function resolveUsedVariables(FunctionLike $node, array $assignedVariables): array
     {
         return $this->betterNodeFinder->find($node, function (Node $node) use ($assignedVariables): bool {
             if (! $node instanceof Variable) {

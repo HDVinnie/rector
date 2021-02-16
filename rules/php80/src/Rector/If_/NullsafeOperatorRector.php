@@ -323,7 +323,7 @@ CODE_SAMPLE
         return $nextExpression->getAttribute(AttributeKey::NEXT_NODE);
     }
 
-    private function getNullSafeAfterStartUntilBeforeEnd(?Node $node, ?Expr $expr): ?Expr
+    private function getNullSafeAfterStartUntilBeforeEnd(?Node $node, \PhpParser\Node\Expr $expr): ?Expr
     {
         while ($node) {
             $expr = $this->nullsafeManipulator->processNullSafeExprResult($expr, $node->expr->expr->name);

@@ -44,7 +44,7 @@ final class ReturnedNodesReturnTypeInferer extends AbstractTypeInferer implement
     /**
      * @param ClassMethod|Closure|Function_ $functionLike
      */
-    public function inferFunctionLike(FunctionLike $functionLike): Type
+    public function inferFunctionLike(ClassMethod $functionLike): Type
     {
         /** @var Class_|Trait_|Interface_|null $classLike */
         $classLike = $functionLike->getAttribute(AttributeKey::CLASS_NODE);
