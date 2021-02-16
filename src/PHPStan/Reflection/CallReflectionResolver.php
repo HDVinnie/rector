@@ -83,7 +83,7 @@ final class CallReflectionResolver
      * @param FuncCall|MethodCall|StaticCall $node
      * @return MethodReflection|FunctionReflection|null
      */
-    public function resolveCall(Node $node)
+    public function resolveCall(MethodCall $node)
     {
         if ($node instanceof FuncCall) {
             return $this->resolveFunctionCall($node);

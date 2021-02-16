@@ -216,7 +216,7 @@ final class NodeFactory
         return $this->createPropertyAssignmentWithExpr($propertyName, $variable);
     }
 
-    public function createPropertyAssignmentWithExpr(string $propertyName, Expr $expr): Assign
+    public function createPropertyAssignmentWithExpr(string $propertyName, Variable $expr): Assign
     {
         $propertyFetch = $this->createPropertyFetch(self::THIS, $propertyName);
 
@@ -296,7 +296,7 @@ final class NodeFactory
      * @param string|Expr $variable
      * @param mixed[] $arguments
      */
-    public function createMethodCall($variable, string $method, array $arguments = []): MethodCall
+    public function createMethodCall(Variable $variable, string $method, array $arguments = []): MethodCall
     {
         if (is_string($variable)) {
             $variable = new Variable($variable);
@@ -324,7 +324,7 @@ final class NodeFactory
     /**
      * @param string|Expr $variable
      */
-    public function createPropertyFetch($variable, string $property): PropertyFetch
+    public function createPropertyFetch(string $variable, string $property): PropertyFetch
     {
         if (is_string($variable)) {
             $variable = new Variable($variable);

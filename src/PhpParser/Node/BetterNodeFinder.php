@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Rector\Core\PhpParser\Node;
 
+use Closure;
 use PhpParser\Node;
 use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\Assign;
@@ -245,7 +246,7 @@ final class BetterNodeFinder
      * @param Node|Node[] $nodes
      * @return Node[]
      */
-    public function find($nodes, callable $filter): array
+    public function find($nodes, Closure $filter): array
     {
         return $this->nodeFinder->find($nodes, $filter);
     }
@@ -358,7 +359,7 @@ final class BetterNodeFinder
      * @param class-string<T>[] $types
      * @return T|null
      */
-    public function findFirstPreviousOfTypes(Node $mainNode, array $types): ?Node
+    public function findFirstPreviousOfTypes(Assign $mainNode, array $types): ?Node
     {
         return $this->findFirstPrevious($mainNode, function (Node $node) use ($types): bool {
             return $this->typeChecker->isInstanceOf($node, $types);
