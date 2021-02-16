@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Rector\TypeDeclaration\Tests\Rector\ClassMethod\AddMethodCallBasedParamTypeRector;
+namespace Rector\TypeDeclaration\Tests\Rector\ClassMethod\AddMethodCallBasedStrictParamTypeRector;
 
 use Iterator;
 use Rector\Testing\PHPUnit\AbstractRectorTestCase;
-use Rector\TypeDeclaration\Rector\ClassMethod\AddMethodCallBasedParamTypeRector;
+use Rector\TypeDeclaration\Rector\ClassMethod\AddMethodCallBasedStrictParamTypeRector;
 use Symplify\SmartFileSystem\SmartFileInfo;
 
-final class AddMethodCallBasedParamTypeRectorTest extends AbstractRectorTestCase
+final class AddMethodCallBasedStrictParamTypeRectorTest extends AbstractRectorTestCase
 {
     /**
      * @dataProvider provideData()
